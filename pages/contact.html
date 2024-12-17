@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <header>
+        <a href="../index.html">
+            <img src="../assets/HR.png" alt="Mon Logo" class="logo">
+        </a>
+        <h1>Contactez-moi</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="../index.html">Accueil</a></li>
+            <li><a href="parcours.html">Parcours</a></li>
+            <li><a href="competences.html">Compétences</a></li>
+            <li><a href="stages.html">Stages</a></li>
+            <li><a href="manifestations.html">Manifestations</a></li>
+            <li><a href="passions.html">Passions</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+            <li><a href="temoignage.html">Témoignage</a></li>
+        </ul>
+    </nav>
+    <section>
+        <div class="container">
+            <div class="contact-options">
+                <div class="contact-card">
+
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>haythamregaieg11@gmail.com</p>
+                    <a href="mailto:haythamregaieg11@gmail.com"><button>Envoyer un message</button></a>
+                </div>
+                <div class="contact-card">
+                    <i class="fab fa-facebook-messenger"></i>
+                    <h3>Messenger</h3>
+
+                    <p>haytham regaieg</p>
+                    <a href="https://www.messenger.com/t/haytham.regaieg11" target="_blank"><button>Envoyer un
+                            message</button></a>
+                </div>
+                <div class="contact-card">
+
+                    <i class="fab fa-whatsapp"></i>
+                    <h3>WhatsApp</h3>
+                    <p>+216 96 808 806</p>
+                    <a href="https://wa.me/21696808806" target="_blank"><button>Envoyer un message</button></a>
+                </div>
+            </div>
+            <div class="form-containerr">
+                <form>
+                    <label for="name">Votre Nom</label>
+                    <input type="text" id="name" name="name" placeholder="Votre Nom">
+                    <label for="email">Votre Email</label>
+                    <input type="email" id="email" name="email" placeholder="Votre Email">
+                    <label for="message">Votre Message</label>
+                    <textarea id="message" name="message" placeholder="Votre Message"></textarea>
+                    <input type="submit" value="Envoyer message">
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Retrouvez-moi sur :</p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/haythamregaieg/" target="_blank">
+                <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+            </a>
+            <span class="separator">|</span>
+            <a href="https://github.com/haythamregaieg" target="_blank">
+                <i class="fa-brands fa-github" aria-hidden="true"></i>
+            </a>
+        </div>
+        <div>
+            <p>&copy; 2024 Regaieg Haytham.</p>
+        </div>
+        <div class="quiz-button">
+            <a href="../pages/quizz.html" class="quiz-link" target="_self">
+                <img src="../assets/quiz.png" alt="Quiz Icon" class="quiz-icon"> Quiz
+            </a>
+        </div>
+    </footer>
+    <script>
+        window.onload = () => {
+            document.body.style.transform = 'translateY(0)';
+            document.body.style.opacity = 1;
+        };
+    </script>
+</body>
+
+</html>

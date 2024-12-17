@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Passions</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <header>
+        <a href="../index.html">
+            <img src="../assets/HR.png" alt="Mon Logo" class="logo">
+        </a>
+        <h1>Mes Passions</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="../index.html">Accueil</a></li>
+            <li><a href="parcours.html">Parcours</a></li>
+            <li><a href="competences.html">Compétences</a></li>
+            <li><a href="stages.html">Stages</a></li>
+            <li><a href="manifestations.html">Manifestations</a></li>
+            <li><a href="passions.html" class="active">Passions</a></li>
+            <li><a href="temoignage.html">Témoignage</a></li>
+        </ul>
+    </nav>
+    <section id="mes-passions">
+        <h2 id="titre-passions">Mes Passions</h2>
+
+        <p id="description-passions">En dehors de l'informatique, voici quelques-unes de mes passions :</p>
+
+        <ul id="liste-passions" class="liste">
+            <li class="passion">Natation</li>
+            <li class="passion">Musique</li>
+            <li class="passion">Voyage</li>
+            <li class="passion">Théâtre</li>
+        </ul>
+
+        <h3 id="images-titre">Voici quelques images de mes passions :</h3>
+        <div id="images-container">
+
+            <figure id="figure-natation">
+                <img id="image-natation" class="image-passion" src="../assets/natation.jpg" alt="natation" width="300">
+                <figcaption>Natation</figcaption>
+            </figure>
+            <figure id="figure-voyage1">
+                <img id="image-voyage1" class="image-passion" src="../assets/musique.jpg" width="300">
+                <figcaption>Musique </figcaption>
+            </figure>
+            <figure id="figure-voyages">
+                <img id="image-voyages" class="image-passion" src="../assets/voyage.jpg" width="300">
+                <figcaption>Voyage</figcaption>
+            </figure>
+            <figure id="figure-voyages">
+                <img id="image-voyages" class="image-passion" src="../assets/t.png" width="300">
+                <figcaption>Théâtre</figcaption>
+            </figure>
+
+        </div>
+
+        <h3 id="videos-titre">Voici une vidéo de mon voyage récent :</h3>
+        <div id="videos-container">
+            <video id="video-1" controls width="600">
+                <source src="../assets/voyage.mp4" type="video/mp4">
+            </video>
+
+        </div>
+    </section>
+
+
+    <footer>
+        <p>Retrouvez-moi sur :</p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/haythamregaieg/" target="_blank">
+                <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+            </a>
+            <span class="separator">|</span>
+            <a href="https://github.com/haythamregaieg" target="_blank">
+                <i class="fa-brands fa-github" aria-hidden="true"></i>
+            </a>
+        </div>
+        <div>
+            <p>&copy; 2024 Regaieg Haytham.</p>
+        </div>
+        <div class="quiz-button">
+            <a href="../pages/quizz.html" class="quiz-link" target="_self">
+                <img src="../assets/quiz.png" alt="Quiz Icon" class="quiz-icon"> Quiz
+            </a>
+        </div>
+    </footer>
+    <script>
+        window.onload = () => {
+            document.body.style.transform = 'translateY(0)';
+            document.body.style.opacity = 1;
+        };
+    </script>
+</body>
+
+</html>

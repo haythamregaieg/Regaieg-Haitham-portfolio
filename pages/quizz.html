@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+    <script src="../script.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <a href="../index.html">
+            <img src="../assets/HR.png" alt="Mon Logo" class="logo">
+        </a>
+        <h1>Quiz Interactif - Capitales et Divers</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="../index.html">Accueil</a></li>
+            <li><a href="parcours.html">Parcours</a></li>
+            <li><a href="competences.html">Compétences</a></li>
+            <li><a href="stages.html">Stages</a></li>
+            <li><a href="manifestations.html">Manifestations</a></li>
+            <li><a href="passions.html">Passions</a></li>
+            <li><a href="quizz.html" class="active">Quizz</a></li>
+            <li><a href="temoignage.html">Témoignage</a></li>
+        </ul>
+    </nav>
+    <section>
+        <form id="quizForm">
+            <ol>
+                <!-- Choix multiples -->
+                <li>
+                    <label>Quelle est la capitale de la France ?</label><br>
+                    <input type="radio" name="q1" value="A" required> Paris<br>
+                    <input type="radio" name="q1" value="B" required> Lyon<br>
+                    <input type="radio" name="q1" value="C" required> Marseille<br><br>
+                </li>
+
+                <!-- Réponse écrite -->
+                <li>
+                    <label>Quelle est la capitale de l'Allemagne ? (Réponse écrite)</label><br>
+                    <input type="text" name="q2" required><br><br>
+                </li>
+
+                <!-- Vrai ou Faux -->
+                <li>
+                    <label>Le Japon est une île située en Asie.</label><br>
+                    <input type="radio" name="q3" value="Vrai" required> Vrai<br>
+                    <input type="radio" name="q3" value="Faux" required> Faux<br><br>
+                </li>
+
+                <!-- Cases à cocher -->
+                <li>
+                    <label>Quelles sont les couleurs du drapeau de l'Italie ?</label><br>
+                    <input type="checkbox" name="q4" value="A" required> Vert<br>
+                    <input type="checkbox" name="q4" value="B" required> Bleu<br>
+                    <input type="checkbox" name="q4" value="C" required> Blanc<br>
+                    <input type="checkbox" name="q4" value="D" required> Rouge<br><br>
+                </li>
+
+                <!-- Complétion -->
+                <li>
+                    <label>La capitale de la Russie est ____________. (Réponse écrite)</label><br>
+                    <input type="text" name="q5" required><br><br>
+                </li>
+
+                <!--  Choix multiples -->
+                <li>
+                    <label>Quelle est la capitale du Brésil ?</label><br>
+                    <input type="radio" name="q6" value="A" required> Rio de Janeiro<br>
+                    <input type="radio" name="q6" value="B" required> São Paulo<br>
+                    <input type="radio" name="q6" value="C" required> Brasília<br><br>
+                </li>
+
+                <!--  Sélection d'images -->
+                <li>
+                    <label>Quelle est la capitale de l'Italie ?</label><br>
+                    <img src="../assets/rome.jpg" alt="Rome" style="height: 150px; width: 295px;"
+                        onclick="selectImage('Rome')" required>
+                    <img src="../assets/paris.jpg" alt="Paris" style="height: 150px; width: 295px;"
+                        onclick="selectImage('Paris')" required>
+                    <div id="selectedAnswer"></div><br>
+                </li>
+
+                <!--  Vrai ou Faux -->
+                <li>
+                    <label>L'Afrique du Sud est située en Amérique du Sud.</label><br>
+                    <input type="radio" name="q8" value="Vrai" required> Vrai<br>
+                    <input type="radio" name="q8" value="Faux" required> Faux<br><br>
+                </li>
+
+                <!--  Cases à cocher -->
+                <li>
+                    <label>Quelles sont les langues officielles de la Belgique ?</label><br>
+                    <input type="checkbox" name="q9" value="A" required> Français<br>
+                    <input type="checkbox" name="q9" value="B" required> Allemand<br>
+                    <input type="checkbox" name="q9" value="C" required> Néerlandais<br><br>
+                </li>
+
+                <!--Complétion -->
+                <li>
+                    <label>La capitale du Canada est ____________. (Réponse écrite)</label><br>
+                    <input type="text" name="q10" required><br><br>
+                </li>
+            </ol>
+
+            <button type="button" id="submitQuiz">Soumettre</button>
+            <div id="result"></div>
+        </form>
+
+
+
+    </section>
+    <footer>
+        <p>Retrouvez-moi sur :</p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/haythamregaieg/" target="_blank">
+                <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+            </a>
+            <span class="separator">|</span>
+            <a href="https://github.com/haythamregaieg" target="_blank">
+                <i class="fa-brands fa-github" aria-hidden="true"></i>
+            </a>
+        </div>
+        <div>
+            <p>&copy; 2024 Regaieg Haytham.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

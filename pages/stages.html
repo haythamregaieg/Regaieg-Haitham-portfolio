@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Stages</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../style.css">
+
+</head>
+
+<body>
+    <header>
+        <a href="../index.html">
+            <img src="../assets/HR.png" alt="Mon Logo" class="logo">
+        </a>
+        <h1>Mes Stages et Expériences</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="../index.html">Accueil</a></li>
+            <li><a href="parcours.html">Parcours</a></li>
+            <li><a href="competences.html">Compétences</a></li>
+            <li><a href="stages.html" class="active">Stages</a></li>
+            <li><a href="manifestations.html">Manifestations</a></li>
+            <li><a href="passions.html">Passions</a></li>
+            <li><a href="temoignage.html">Témoignage</a></li>
+        </ul>
+    </nav>
+
+
+    <section id="stage-1">
+        <h2 id="titre-stage">Stage de fin d'études</h2>
+        <h3>Digix Sfax</h3>
+        <a href="https://icy-bush-08cfaa510.5.azurestaticapps.net/index.html" target="_blank">
+            <img src="../assets/digix.jpg" alt="digix" id="socite" />
+        </a>
+        <p class="date-stage"><i class="fa-solid fa-calendar-alt"></i> De janvier 2024 à mai 2024.</p>
+        <br>
+
+
+        <button class="btn-center" id="toggle-description-1">Afficher la description</button>
+
+
+        <div class="description" id="description-1">
+            <button class="close-btn" id="close-description-1">&times;</button>
+            <p><b>Description :</b></p>
+            <p>
+                Conception et développement de Docare : une plateforme de gestion
+                des soins de santé. Développement de Docare pour la gestion des patients et des médecins.
+            </p>
+            <ul>
+                <li>Vue.js</li>
+                <li>PHP</li>
+                <li>Supabase</li>
+
+            </ul>
+        </div>
+    </section>
+
+
+    <section id="stage-2">
+        <h2 id="titre-stage">Stage de fin d'année</h2>
+        <h3>PRIMATEC Engineering Sfax</h3>
+        <a href="https://primatec.recruitee.com" target="_blank">
+            <img src="../assets/primatec.png" alt="primatec" id="socite" />
+        </a>
+        <p class="date-stage"><i class="fa-solid fa-calendar-alt"></i> De juillet 2023 à août 2023.</p>
+        <br>
+
+        <button class="btn-center" id="toggle-description-2">Afficher la description</button>
+
+
+        <div class="description" id="description-2">
+            <button class="close-btn" id="close-description-2">&times;</button>
+            <p><b>Description :</b></p>
+            <p>
+                Conception et développement de plugins personnalisés pour
+                automatiser les pipelines CI/CD, en utilisant l'API Jenkins et le langage
+                Java pour des solutions évolutives et robustes.
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <p>Retrouvez-moi sur :</p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/haythamregaieg/" target="_blank">
+                <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+            </a>
+            <span class="separator">|</span>
+            <a href="https://github.com/haythamregaieg" target="_blank">
+                <i class="fa-brands fa-github" aria-hidden="true"></i>
+            </a>
+        </div>
+        <div>
+            <p>&copy; 2024 Regaieg Haytham.</p>
+        </div>
+        <div class="quiz-button">
+            <a href="../pages/quizz.html" class="quiz-link" target="_self">
+                <img src="../assets/quiz.png" alt="Quiz Icon" class="quiz-icon"> Quiz
+            </a>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const stages = [
+                { toggle: 'toggle-description-1', desc: 'description-1', close: 'close-description-1' },
+                { toggle: 'toggle-description-2', desc: 'description-2', close: 'close-description-2' },
+            ];
+
+            stages.forEach(stage => {
+                const toggleButton = document.getElementById(stage.toggle);
+                const descriptionDiv = document.getElementById(stage.desc);
+                const closeButton = document.getElementById(stage.close);
+
+                if (toggleButton && descriptionDiv && closeButton) {
+                    toggleButton.addEventListener('click', () => {
+                        descriptionDiv.style.display = 'block';
+                        toggleButton.style.display = 'none';
+                    });
+
+                    closeButton.addEventListener('click', () => {
+                        descriptionDiv.style.display = 'none';
+                        toggleButton.style.display = 'inline-block';
+                    });
+                } else {
+                    console.error(`Un ou plusieurs éléments sont introuvables :`, {
+                        toggle: stage.toggle,
+                        description: stage.desc,
+                        close: stage.close
+                    });
+                }
+            });
+        });
+
+    </script>
+    <style>
+        ul {
+            list-style-type: square;
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        li {
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+    <script>
+        window.onload = () => {
+            document.body.style.transform = 'translateY(0)';
+            document.body.style.opacity = 1;
+        };
+    </script>
+</body>
+
+</html>
