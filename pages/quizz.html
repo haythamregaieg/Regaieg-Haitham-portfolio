@@ -7,7 +7,33 @@
     <title>Quiz</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="../style.css">
-    <script src="../script.js" defer></script>
+    <script src="../script.js"></script>
+    <style>
+        #result {
+            text-align: center;
+            font-size: 18px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        .incorrect {
+            color: red;
+        }
+
+        .correct {
+            color: green;
+        }
+
+        .quiz {
+            background-color: #0077b6;
+            width: 70%;
+            color: white;
+        }
+
+        .quiz label {
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
@@ -32,88 +58,51 @@
     <section>
         <form id="quizForm">
             <ol>
-                <!-- Choix multiples -->
-                <li>
-                    <label>Quelle est la capitale de la France ?</label><br>
-                    <input type="radio" name="q1" value="A" required> Paris<br>
-                    <input type="radio" name="q1" value="B" required> Lyon<br>
-                    <input type="radio" name="q1" value="C" required> Marseille<br><br>
-                </li>
+                <section class="quiz">
+                    <li>
+                        <label>Quelle est la capitale de la France ?</label><br>
+                        <input type="radio" name="q1" value="A"> Paris<br>
+                        <input type="radio" name="q1" value="B"> Lyon<br>
+                        <input type="radio" name="q1" value="C"> Marseille<br>
+                    </li>
+                </section>
+                <section class="quiz">
+                    <li>
+                        <label>Quelle est la capitale de l'Allemagne ? (Réponse écrite)</label><br>
+                        <input type="text" name="q2">
+                    </li>
+                </section>
+                <section class="quiz">
 
-                <!-- Réponse écrite -->
-                <li>
-                    <label>Quelle est la capitale de l'Allemagne ? (Réponse écrite)</label><br>
-                    <input type="text" name="q2" required><br><br>
-                </li>
+                    <li>
+                        <label>Le Japon est une île située en Asie ?</label><br>
+                        <input type="radio" name="q3" value="Vrai"> Vrai<br>
+                        <input type="radio" name="q3" value="Faux"> Faux<br>
+                    </li>
+                </section>
+                <section class="quiz">
+                    <li>
+                        <label>Quelles sont les couleurs du drapeau de l'Italie ? (Cochez les bonnes
+                            réponses)</label><br>
+                        <input type="checkbox" name="check" value="Vert"> Vert<br>
+                        <input type="checkbox" name="check" value="Bleu"> Bleu<br>
+                        <input type="checkbox" name="check" value="Blanc"> Blanc<br>
+                        <input type="checkbox" name="check" value="Rouge"> Rouge<br>
+                    </li>
+                </section>
+                <section class="quiz">
+                    <li>
+                        <label>Quelle est la capitale du Brésil ?</label><br>
+                        <input type="radio" name="q5" value="A"> Rio de Janeiro<br>
+                        <input type="radio" name="q5" value="B"> São Paulo<br>
+                        <input type="radio" name="q5" value="C"> Brasília<br>
+                    </li>
+                </section>
 
-                <!-- Vrai ou Faux -->
-                <li>
-                    <label>Le Japon est une île située en Asie.</label><br>
-                    <input type="radio" name="q3" value="Vrai" required> Vrai<br>
-                    <input type="radio" name="q3" value="Faux" required> Faux<br><br>
-                </li>
-
-                <!-- Cases à cocher -->
-                <li>
-                    <label>Quelles sont les couleurs du drapeau de l'Italie ?</label><br>
-                    <input type="checkbox" name="q4" value="A" required> Vert<br>
-                    <input type="checkbox" name="q4" value="B" required> Bleu<br>
-                    <input type="checkbox" name="q4" value="C" required> Blanc<br>
-                    <input type="checkbox" name="q4" value="D" required> Rouge<br><br>
-                </li>
-
-                <!-- Complétion -->
-                <li>
-                    <label>La capitale de la Russie est ____________. (Réponse écrite)</label><br>
-                    <input type="text" name="q5" required><br><br>
-                </li>
-
-                <!--  Choix multiples -->
-                <li>
-                    <label>Quelle est la capitale du Brésil ?</label><br>
-                    <input type="radio" name="q6" value="A" required> Rio de Janeiro<br>
-                    <input type="radio" name="q6" value="B" required> São Paulo<br>
-                    <input type="radio" name="q6" value="C" required> Brasília<br><br>
-                </li>
-
-                <!--  Sélection d'images -->
-                <li>
-                    <label>Quelle est la capitale de l'Italie ?</label><br>
-                    <img src="../assets/rome.jpg" alt="Rome" style="height: 150px; width: 295px;"
-                        onclick="selectImage('Rome')" required>
-                    <img src="../assets/paris.jpg" alt="Paris" style="height: 150px; width: 295px;"
-                        onclick="selectImage('Paris')" required>
-                    <div id="selectedAnswer"></div><br>
-                </li>
-
-                <!--  Vrai ou Faux -->
-                <li>
-                    <label>L'Afrique du Sud est située en Amérique du Sud.</label><br>
-                    <input type="radio" name="q8" value="Vrai" required> Vrai<br>
-                    <input type="radio" name="q8" value="Faux" required> Faux<br><br>
-                </li>
-
-                <!--  Cases à cocher -->
-                <li>
-                    <label>Quelles sont les langues officielles de la Belgique ?</label><br>
-                    <input type="checkbox" name="q9" value="A" required> Français<br>
-                    <input type="checkbox" name="q9" value="B" required> Allemand<br>
-                    <input type="checkbox" name="q9" value="C" required> Néerlandais<br><br>
-                </li>
-
-                <!--Complétion -->
-                <li>
-                    <label>La capitale du Canada est ____________. (Réponse écrite)</label><br>
-                    <input type="text" name="q10" required><br><br>
-                </li>
             </ol>
-
-            <button type="button" id="submitQuiz">Soumettre</button>
+            <center> <button type="button" onclick="soumettreQuiz()">Soumettre</button></center>
             <div id="result"></div>
         </form>
-
-
-
     </section>
     <footer>
         <p>Retrouvez-moi sur :</p>
@@ -130,7 +119,8 @@
             <p>&copy; 2024 Regaieg Haytham.</p>
         </div>
     </footer>
-
 </body>
+
+
 
 </html>

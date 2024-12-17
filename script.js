@@ -1,99 +1,112 @@
-let selectedAnswerImage = "";
+function soumettreQuiz() {
+  const form = document.forms["quizForm"];
 
-function selectImage(answer) {
-  selectedAnswerImage = answer;
-  document.getElementById(
-    "selectedAnswer"
-  ).innerText = `Vous avez sélectionné : ${selectedAnswerImage}`;
-}
+  if (
+    !form.q1.value ||
+    !form.q2.value.trim() ||
+    !form.q3.value ||
+    !form.q5.value
+  ) {
+    alert(
+      "Veuillez répondre à toutes les questions avant de soumettre le quiz."
+    );
+    return;
+  }
 
-document.getElementById("submitQuiz").addEventListener("click", function () {
-  let form = document.getElementById("quizForm");
-  let score = 0;
-  let results = "";
-
-  let correctAnswers = {
-    q1: "A", // France : Paris
-    q2: "berlin", // Allemagne : Berlin
-    q3: "Vrai", // Le Japon est une île située en Asie
-    q4: ["A", "C", "D"], // Italie : Vert, Blanc, Rouge
-    q5: "moscou", // Russie : Moscou
-    q6: "C", // Brésil : Brasília
-    q7: "Rome", // Sélection d'image : Rome
-    q8: "Faux", // Afrique du Sud n'est pas en Amérique du Sud
-    q9: ["A", "B", "C"], // Belgique : Français, Allemand, Néerlandais
-    q10: "ottawa", // Canada : Ottawa
+  // Réponses correctes
+  const reponsesCorrectes = {
+    q1: "A",
+    q2: "Berlin",
+    q3: "Vrai",
+    q5: "C",
   };
 
-  for (let i = 1; i <= 10; i++) {
-    let isCorrect = false;
+  let score = 0;
+  let resultats = "";
 
-    if (form.querySelector(`input[name='q${i}']:checked`)) {
-      let userAnswer = form.querySelector(`input[name='q${i}']:checked`).value;
-      if (Array.isArray(correctAnswers[`q${i}`])) {
-        let userAnswers = [];
-        document
-          .querySelectorAll(`input[name='q${i}']:checked`)
-          .forEach((input) => userAnswers.push(input.value));
-        if (
-          JSON.stringify(userAnswers.sort()) ===
-          JSON.stringify(correctAnswers[`q${i}`].sort())
-        ) {
-          score++;
-          isCorrect = true;
-        }
-      } else if (userAnswer === correctAnswers[`q${i}`]) {
-        score++;
-        isCorrect = true;
-      }
-    } else if (form.querySelector(`input[name='q${i}']`)) {
-      let userAnswerText = form
-        .querySelector(`input[name='q${i}']`)
-        .value.trim()
-        .toLowerCase();
-      if (userAnswerText === correctAnswers[`q${i}`]) {
-        score++;
-        isCorrect = true;
-      }
-    }
-
-    if (i !== 7) {
-      results += `<li>Question ${i}: ${
-        isCorrect ? "Juste ✅" : "Faux ❌"
-      }</li>`;
-    }
-  }
-
-  if (selectedAnswerImage === correctAnswers.q7) {
+  // Question 1
+  const q1 = form.q1.value;
+  if (q1 === reponsesCorrectes.q1) {
     score++;
-    results += `<li>Question 7: Juste ✅</li>`;
+    resultats += "<p class='correct'>1. Bonne réponse : Paris ✅</p>";
   } else {
-    results += `<li>Question 7: Faux ❌</li>`;
+    resultats +=
+      "<p class='incorrect'>1. Mauvaise réponse ❌ (La bonne réponse est : Paris)</p>";
   }
 
-  document.getElementById("result").innerHTML = `
-        <h2>Résultats du Quiz</h2>
-        <p>Votre score est de ${score} / 10.</p>
-        <ul>${results}</ul>
-        <button id="showCorrections">Afficher les corrections</button>
-    `;
+  // Question 2
+  const q2 = form.q2.value.trim();
+  if (q2.toLowerCase() === reponsesCorrectes.q2.toLowerCase()) {
+    score++;
+    resultats += "<p class='correct'>2. Bonne réponse : Berlin ✅</p>";
+  } else {
+    resultats +=
+      "<p class='incorrect'>2. Mauvaise réponse ❌ (La bonne réponse est : Berlin)</p>";
+  }
 
-  document
-    .getElementById("showCorrections")
-    .addEventListener("click", function () {
-      let corrections = "<h3>Corrections :</h3><ul>";
-      for (let i = 1; i <= 10; i++) {
-        corrections += `<li>Question ${i}: ${
-          Array.isArray(correctAnswers[`q${i}`])
-            ? correctAnswers[`q${i}`].join(", ")
-            : correctAnswers[`q${i}`]
-        }</li>`;
-      }
-      corrections += "</ul>";
+  // Question 3
+  const q3 = form.q3.value;
+  if (q3 === reponsesCorrectes.q3) {
+    score++;
+    resultats += "<p class='correct'>3. Bonne réponse : Vrai ✅</p>";
+  } else {
+    resultats +=
+      "<p class='incorrect'>3. Mauvaise réponse ❌ (La bonne réponse est : Vrai)</p>";
+  }
 
-      document.getElementById("result").innerHTML += corrections;
-    });
-});
+  // Question 4 (Cases à cocher)
+  if (verifierCases(form)) {
+    score++;
+    resultats +=
+      "<p class='correct'>4. Bonne réponse ✅ : vert , rouge , blanc</p>";
+  } else {
+    resultats +=
+      "<p class='incorrect'>4. Mauvaise réponse ❌ (La bonne réponse est : vert , rouge , blanc) </p>";
+  }
+
+  // Question 5
+  const q5 = form.q5.value;
+  if (q5 === reponsesCorrectes.q5) {
+    score++;
+    resultats += "<p class='correct'>5. Bonne réponse : Brasília ✅</p>";
+  } else {
+    resultats +=
+      "<p class='incorrect'>5. Mauvaise réponse ❌ (La bonne réponse est : Brasília)</p>";
+  }
+
+  const totalQuestions = 5;
+  const resultElement = document.getElementById("result");
+  resultElement.innerHTML = `
+      <h3>Votre score : ${score} / ${totalQuestions}</h3>
+      ${resultats}
+  `;
+
+  // Si le score est parfait, ajouter une explosion de réussite
+  if (score === totalQuestions) {
+    explosionReussite();
+  }
+}
+
+function verifierCases(form) {
+  const cases = form.check;
+  return (
+    cases[0].checked === true && // vert
+    cases[1].checked === false && // bleu
+    cases[2].checked === true && // blanc
+    cases[3].checked === true // rouge
+  );
+}
+
+function explosionReussite() {
+  const body = document.querySelector("body");
+  const explosion = document.createElement("div");
+  explosion.classList.add("explosion");
+  body.appendChild(explosion);
+
+  setTimeout(() => {
+    body.removeChild(explosion);
+  }, 2000); // L'effet d'explosion disparaît après 2 secondes
+}
 
 window.onload = function () {
   alert(
