@@ -81,6 +81,9 @@ function soumettreQuiz() {
       ${resultats}
   `;
 
+  // resultElement.textContent = `Votre score : ${score} / ${totalQuestions}\n${resultats}`;
+
+
   // Si le score est parfait, ajouter une explosion de réussite
   if (score === totalQuestions) {
     explosionReussite();
